@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title page-title></title>
+		<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+		<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+		<script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+		<script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+		<script type="text/javascript" src="bower_components/angular-mocks/angular-mocks.js"></script>
+		<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+
+		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+		
+		
+		<script src="/Scripts/app.js"></script>
+		<script src="/Scripts/app/modules/shared/modules.js"></script>
+		<script src="/Scripts/app/modules/shared/constants.js"></script>
+
+		<script src="/Scripts/app/modules/fizzBuzz/fizzBuzzModule.js"></script>
+		<script src="/Scripts/app/modules/fizzBuzz/fizzBuzzDirective.js"></script>
+		<script src="/Scripts/app/modules/fizzBuzz/fizzBuzzFactory.js"></script>
+		<script src="/Scripts/app/modules/fizzBuzz/fizzBuzzController.js"></script>
+		
+		
+		<link href="bower_components/font-awesome/less/font-awesome.less"/>
+		<link href="bower_components/font-awesome/scss/font-awesome.scss"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<fizz-buzz-list id="fizz-buzz-list"></fizz-buzz-list>
+				<script>
+					angular.element(document).ready(function () {
+						angular.bootstrap($("#fizz-buzz-list"), ["FizzBuzzModule"]);
+					});
+					$(document).ready(function () {
+					});
+				</script>
+			</div>
+		</div>
+	</body>
+</html>
