@@ -17,7 +17,10 @@
     <hr>
     <div ng-hide="isLoading">
         <ol class="row">
-            <li class="col-md-2" ng-repeat="n in data track by $index"><strong>{{n}}</strong></li>
+            <li class="col-md-2" ng-repeat="item in data track by $index">
+            <input type="checkbox" ng-model="item.isFavourite"/>
+            <strong>{{item.name}}</strong>
+            </li>
         </ol>
     </div>
 </div>
