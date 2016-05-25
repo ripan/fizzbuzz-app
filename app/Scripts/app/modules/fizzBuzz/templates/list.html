@@ -16,11 +16,14 @@
     <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
     <hr>
     <div ng-hide="isLoading">
-        <ol class="row">
+        <ul class="row list-unstyled">
             <li class="col-md-2" ng-repeat="item in data track by $index">
-            <input type="checkbox" ng-model="item.isFavourite"/>
+            {{item.index}}
+            {{$.inArray(item,favourities)}}
+            <input type="checkbox" ng-model="item.isFavourite" ng-change="preserveSelection()" ng-checked="$.inArray(item,favourities)"/>
             <strong>{{item.name}}</strong>
             </li>
-        </ol>
+        </ul>
     </div>
+    {{favourities}}
 </div>
