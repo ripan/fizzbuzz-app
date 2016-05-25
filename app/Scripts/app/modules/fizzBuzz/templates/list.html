@@ -1,21 +1,23 @@
 ﻿<div ng-controller="FizzBuzzCtrl" class="well-white well-lg">
-	<select name="singleSelect" ng-model="pageSize">
-		<option value="10">10</option>
-		<option value="25">25</option>
-		<option value="50">50</option>
-	</select>
-	<br>
-	
-	<ul>
-		<li ng-repeat="n in data track by $index">
-			{{n}}
-		</li>
-	</ul>
-	<h4>Default</h4>
-	<uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
-	<uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
-	<uib-pagination direction-links="false" boundary-links="true" total-items="totalItems" ng-model="currentPage"></uib-pagination>
-	<uib-pagination direction-links="false" total-items="totalItems" ng-model="currentPage" num-pages="smallnumPages"></uib-pagination>
-<pre>The selected page no: {{currentPage}}</pre>
-<pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>
+    <form class="form-inline">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">Select page size<span ng-show="isLoading"><i class="fa fa-spinner fa-spin fa-1x fa-fw pull-left"></i></span></div>
+                <select class="form-control" ng-model="pageSize" ng-options="option for option in pageSizeOptions"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">Select viewing values<span ng-show="isLoading"><i class="fa fa-spinner fa-spin fa-1x fa-fw pull-left"></i></span></div>
+                <select class="form-control" ng-model="maxViewingValue" ng-options="value for value in viewingValues"></select>
+            </div>
+        </div>
+    </form>
+    <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+    <hr>
+    <div ng-hide="isLoading">
+        <ol class="row">
+            <li class="col-md-2" ng-repeat="n in data track by $index"><strong>{{n}}</strong></li>
+        </ol>
+    </div>
 </div>
