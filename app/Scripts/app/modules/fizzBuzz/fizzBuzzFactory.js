@@ -2,7 +2,7 @@
 	'use strict';
 	
     var apiUrl; 
-	if (window.location.hostname == "fizzbuzz-app.herokuapp.com"){
+	if (window.location.hostname.includes('herokuapp')){
 		apiUrl = 'https://fizzbuzz-app.herokuapp.com/api/v1/fizzbuzz/list';
 	}else{
 		apiUrl = 'http://fizzbuzz.dev/api/v1/fizzbuzz/list'
