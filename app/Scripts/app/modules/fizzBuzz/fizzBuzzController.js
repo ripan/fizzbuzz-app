@@ -36,7 +36,9 @@
         });
 
         $scope.preserveSelection = function(e) {
-            $scope.favourities.push(this.item);
+            if(!_.contains($scope.favourities, this.item.id)){
+                $scope.favourities.push(this.item.id);
+            }
         };
 
         $scope.$watch('maxViewingValue', function(newValue, oldValue) {

@@ -18,12 +18,9 @@
     <div ng-hide="isLoading">
         <ul class="row list-unstyled">
             <li class="col-md-2" ng-repeat="item in data track by $index">
-            {{item.index}}
-            {{$.inArray(item,favourities)}}
-            <input type="checkbox" ng-model="item.isFavourite" ng-change="preserveSelection()" ng-checked="$.inArray(item,favourities)"/>
-            <strong>{{item.name}}</strong>
+                <input type="checkbox" ng-model="item.isFavourite" ng-click="preserveSelection()" ng-checked="{{favourities.indexOf(item.id) >= 0}}" />
+                <strong>{{item.name}}</strong>
             </li>
         </ul>
     </div>
-    {{favourities}}
 </div>
