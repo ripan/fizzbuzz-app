@@ -14,6 +14,14 @@
         </div>
     </form>
     <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+
+    <div class="alert alert-success" role="alert" ng-show="favourities.length > 0">
+        Favourities: {{favourities.length}}
+    </div>
+    <div class="alert alert-warning" role="alert" ng-hide="favourities.length > 0">
+        You haven't selected any item.
+    </div>
+
     <hr>
     <div ng-hide="isLoading">
         <ul class="row list-unstyled">

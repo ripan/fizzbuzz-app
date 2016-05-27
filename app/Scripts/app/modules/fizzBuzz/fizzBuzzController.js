@@ -4,7 +4,7 @@
     angular.module('FizzBuzzModule').controller('FizzBuzzCtrl', ['$scope', 'FizzBuzz', function($scope, FizzBuzz) {
 
         $scope.isLoading = true;
-        $scope.totalItems = 64;
+        $scope.totalItems = 25;
         $scope.currentPage = 1;
         $scope.pageSize = 100;
         $scope.pageSizeOptions = [10, 25, 50, 100];
@@ -36,8 +36,14 @@
         });
 
         $scope.preserveSelection = function(e) {
-            if(!_.contains($scope.favourities, this.item.id)){
-                $scope.favourities.push(this.item.id);
+            var id = this.item.id;
+            if (!_.contains($scope.favourities, id)) {
+                $scope.favourities.push(id);
+            } else {
+                var index = $scope.favourities.indexOf(id);
+                if (index > -1) {
+                    $scope.favourities.splice(index, 1);
+                };
             }
         };
 
