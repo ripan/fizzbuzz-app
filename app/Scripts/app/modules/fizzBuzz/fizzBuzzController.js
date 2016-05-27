@@ -12,6 +12,7 @@
         $scope.viewingValues = [10, 100, 1000, 10000, 100000000000];
         $scope.favourities = [];
         $scope.numPages = 2;
+        $scope.maxSize = 5;
 
         $scope.setPage = function(pageNo) {
             $scope.currentPage = pageNo;
