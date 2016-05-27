@@ -7,7 +7,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "postinstall": "bash ./post_install.sh"
   },
   "dependencies": {
     "ejs": "2.4.1",
