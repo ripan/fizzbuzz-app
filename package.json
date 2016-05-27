@@ -12,6 +12,7 @@
     "postinstall": "bash ./post_install.sh"
   },
   "dependencies": {
+    "bower": "^1.7.9",
     "ejs": "2.4.1",
     "express": "4.13.3"
   },
