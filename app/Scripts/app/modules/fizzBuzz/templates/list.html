@@ -1,0 +1,36 @@
+﻿<div ng-controller="FizzBuzzCtrl" class="well-white well-lg">
+    <form class="form-inline">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">Select page size<span ng-show="isLoading"><i class="fa fa-spinner fa-spin fa-1x fa-fw pull-left"></i></span></div>
+                <select class="form-control" ng-model="itemsPerPage" ng-options="option for option in itemsPerPageOptions"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">Select viewing values<span ng-show="isLoading"><i class="fa fa-spinner fa-spin fa-1x fa-fw pull-left"></i></span></div>
+                <select class="form-control" ng-model="maxViewingValue" ng-options="value for value in viewingValues"></select>
+            </div>
+        </div>
+    </form>
+    <uib-pagination total-items="totalItems" max-size="maxSize" items-per-page="itemsPerPage" ng-model="currentPage" boundary-link-numbers="true" rotate="false"></uib-pagination>
+    <hr>
+    <div ng-show="isLoading">
+        <center><i class="fa fa-spinner fa-spin fa-3x fa-fw margin-bottom"></i></center>
+    </div>
+    <div ng-hide="isLoading">
+        <div class="alert alert-success" role="alert" ng-show="favourities.length > 0">
+            Favourities: {{favourities.length}}
+            <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="clearFavourities()">Clear Favourities</button>
+        </div>
+        <div class="alert alert-warning" role="alert" ng-hide="favourities.length > 0">
+            You haven't selected any item.
+        </div>
+        <ul class="row list-unstyled">
+            <li class="col-md-2" ng-repeat="item in data track by $index">
+                <input type="checkbox" ng-model="item.isFavourite" ng-click="preserveSelection()" ng-checked="favourities.indexOf(item.id) >= 0" />
+                <strong>{{item.name}}</strong> <small class="text-muted">{{item.id}}</small>
+            </li>
+        </ul>
+    </div>
+</div>
