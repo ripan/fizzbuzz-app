@@ -29,7 +29,7 @@
         <ul class="row list-unstyled">
             <li class="col-md-2" ng-repeat="item in data track by $index">
                 <input type="checkbox" ng-model="item.isFavourite" ng-click="preserveSelection()" ng-checked="favourities.indexOf(item.id) >= 0" />
-                <span class="text-muted">{{item.id}}</span> - <strong>{{item.name}}</strong>
+                <strong>{{item.name}}</strong> <small class="text-muted">{{item.id}}</small>
             </li>
         </ul>
     </div>

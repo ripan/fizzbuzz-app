@@ -23,7 +23,7 @@
             FizzBuzz.query({ page: $scope.currentPage, page_size: $scope.itemsPerPage, maxViewingValue: $scope.maxViewingValue }, function(response) {
                 $scope.isLoading = false;
                 $scope.data = _.map(response, function(item, index) {
-                    return _.extend(item, { isFavourite: _.contains($scope.favourities, item.id) })
+                    return { id: $scope.sequence(index), name: item, isFavourite: _.contains($scope.favourities, item) }
                 });
             }, function(error) {
                 console.log(error);
@@ -63,6 +63,9 @@
             });
         };
 
+        $scope.sequence = function(index) {
+            return $scope.itemsPerPage * $scope.currentPage - $scope.itemsPerPage + index + 1
+        };
 
     }]);
 
